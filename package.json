@@ -1,0 +1,36 @@
+{
+  "name": "uneedev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass  --no-source-map --watch src/assets/sass:public/assets/css",
+    "watch:eleventy": "eleventy --serve",
+    "build:sass": "sass  --no-source-map src/assets/sass:public/assets/css",
+    "build:eleventy": "eleventy",
+    "postbuild": "lightningcss --minify --targets '> 0.25%, not IE 11' public/assets/css/*.css -o public/assets/css/*.css",
+    "start": "npm-run-all build:sass --parallel watch:*",
+    "build": "npm-run-all build:sass build:eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-img": "^2.0.1"
+  },
+  "dependencies": {
+    "@sherby/eleventy-plugin-files-minifier": "^1.1.1",
+    "body-parser": "^1.20.3",
+    "eleventy-plugin-code-style-hooks": "^2.0.2",
+    "express": "^4.21.2",
+    "lightningcss-cli": "^1.18.0",
+    "luxon": "^3.2.1",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "netlify-cms-app": "^2.15.72",
+    "node-html-parser": "^6.1.13",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.57.1"
+  }
+}

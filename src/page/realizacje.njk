@@ -1,0 +1,38 @@
+---
+layout: "layouts/base-hero.njk"
+title: Realizacje
+description: 
+---
+
+<section class="pt-medium pb-small rounded-xl bg-light-2">
+  <div class="container">
+    <div class="w-xl-80 mx-auto">
+      {% for post in collections.works %}
+        <a href="{{ post.data.link }}" title="{{ post.data.title }}" target="_blank">
+          <div class="rounded-md shadow-2 mb-5 bg-light-1 fade-in">
+          <div class="row flex-md-row-reverse align-items-center">
+            <div class="col-md-6">
+                <div class="work-image-wrap p-2">
+                    {% workImage "src/" + post.data.thumbnail, post.data.title %}
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 p-md-5 pt-2">
+              <p class="color-accent-1 mb-3">
+                {{ post.data.client }}
+              </p>
+              <h3 class="mt-0">
+                {{ post.data.title }}
+              </h3>
+              <p class="">
+                {{ post.data.description }}
+              </p>
+                </div>
+            </div>
+          </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

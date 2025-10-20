@@ -1,0 +1,125 @@
+
+.shadow-1 {
+    box-shadow: 0 -1px 3px rgba(131, 131, 131, 0.1),
+                0 4px 8px rgba(130, 130, 130, 0.1);
+    overflow: hidden;
+}
+.shadow-2 {
+    box-shadow: 0 -1px 5px rgba(132, 132, 132, 0.1),
+                0 4px 20px rgba(129, 129, 129, 0.1);
+    overflow: hidden;
+}
+.shadow-3 {
+    box-shadow: 0 -1px 5px rgba(137, 137, 137, 0.1),
+                0 4px 30px rgba(133, 133, 133, 0.1);
+    overflow: hidden;
+}
+
+.rounded-md {
+    border-radius: 13px;
+    overflow: hidden;
+}
+.rounded-lg {
+    border-radius: 18px;
+    overflow: hidden;
+}
+.rounded-xl {
+    border-radius: 25px;
+    overflow: hidden;
+}
+.rounded-bottom-xl {
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.rounded-full {
+    border-radius: 50%;
+}
+
+@media(min-width:767px) {
+    .rounded-md {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .rounded-lg {
+        border-radius: 25px;
+        overflow: hidden;
+    }
+    .rounded-xl {
+        border-radius: 45px;
+        overflow: hidden;
+    }
+    .rounded-bottom-xl {
+        border-bottom-right-radius: 45px;
+        border-bottom-left-radius: 45px;
+    }
+}
+
+.txt-border {
+  position: relative;
+}
+.txt-border::before {
+  position: absolute;
+  content: "";
+  top: 45%;
+  left: -22px;
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  border: 3px solid var(--color-accent-1);
+  background: transparent;
+  border-radius: 50%;
+}
+
+.bg-squares {
+    background: var(--color-dark-1) url(/assets/img/template/bgr-squeres.svg) 0 0/64px;
+}
+
+.op-5 {
+    opacity: .5;
+}
+.op-6 {
+    opacity: .6;
+}
+.op-7 {
+    opacity: .7;
+}
+
+.line-x {
+    width: 100%;;
+    height: 1px;
+    background: var(--color-light-1);
+    opacity: .13;
+}
+
+.line-xh {
+    width: 100%;;
+    height: 1px;
+    background: var(--color-dark-1);
+    opacity: .13;
+}
+
+@media(min-width:767px) {
+.bg-gradient {
+    position: relative;
+    z-index: 0
+}
+.bg-gradient::after,
+.bg-gradient::before {
+    position: absolute;
+    content: "";
+    left: 50%;
+    width: 90%;
+    height: 66%;
+    background: rgba(68, 143, 254, 0.3);
+    filter: blur(50px);
+    border-radius: 20%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.bg-gradient::after {
+    top: -75%;
+}
+.bg-gradient::before {
+    bottom: -75%;
+}
+}

@@ -1,0 +1,24 @@
+<section class="clients pb-medium pt-large bg-dark-1">
+	<div class="container">
+		<div class="row g-3 g-md-3">
+			{% for post in collections
+				.clients
+				.slice(0, 12) %}
+				<div class="col-6 col-md-2">
+				  <div class="client-logo fade-in">
+					<img src="{{ post.data.logo }}" loading="lazy" decoding="async" height="55" width="130" alt="{{ post.data.title }} - logo"/>
+				  </div>
+				</div>
+			{% endfor %}
+		</div> 
+	</div>
+</section>
+
+<style>
+	.client-logo {
+		border: 1px solid #1112;
+	}
+	.client-logo img {
+		filter: invert(1) grayscale(100%) brightness(90%);
+	}
+</style>

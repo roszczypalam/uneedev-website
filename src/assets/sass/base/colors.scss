@@ -1,0 +1,96 @@
+
+:root,.light {
+    --color-accent-1: #00ffd5;
+    --color-accent-2: #4935ff;
+    --color-dark-1: #02070e;
+    --color-dark-2: #091119;
+    --color-dark-3: #151719;
+    --color-light-1: #fdfdfd;
+    --color-light-2: #f7f7f7;
+    --color-light-3: #ffffff;
+    --color-heading: #0b2753;
+    --color-text: #4a627e;
+    --color-border: #63768587;
+}
+
+@media (prefers-color-scheme:dark) { 
+    :root {
+    --color-dark-1: #fdfdfd;
+    --color-dark-2: #f7f7f7;
+    --color-dark-3: #08111e;
+    --color-light-1: #080714;
+    --color-light-2: #0d0d19;
+    --color-light-3: #ffffff;
+    --color-heading: #fff;
+    --color-text: #bcbcbc;
+    --color-border: #74787b87;
+    }
+    .img-revert {
+      filter: grayscale(100%) invert(0.95) brightness(300%) contrast(154%)
+    }
+}
+  
+  .bg-light-1 {
+    background-color: var(--color-light-1)
+  }
+  .bg-light-2 {
+    background-color: var(--color-light-2)
+  }
+  .bg-light-3 {
+    background-color: var(--color-light-3)
+  }
+  .bg-dark {
+    background-color: #171c27
+  }
+  .bg-dark-1 {
+    background-color: var(--color-dark-1)
+  }
+  .bg-dark-2 {
+    background-color: var(--color-dark-2)
+  }
+  .bg-dark-3 {
+    background-color: var(--color-dark-3)
+  }
+  .bg-accent-1 {
+    background-color: var(--color-accent-1)
+  }
+  .bg-accent-2 {
+    background-color: var(--color-accent-2)
+  }
+
+  .color-accent-1 {
+    color: var(--color-accent-1)!important;
+    text-shadow: none
+  }
+  .color-accent-2 {
+    color: var(--color-accent-2)!important;
+    text-shadow: none
+  }
+  .color-light {
+    color: #fff!important
+  }
+  .color-gray {
+    color: #e1e1e1!important
+  }
+  .color-light-1 {
+    color: var(--color-light-1)!important
+  }
+  .color-light-2 {
+    color: var(--color-light-2)!important
+  }
+  .color-light-3 {
+    color: var(--color-light-3)!important
+  }
+  .color-dark {
+    color: #131314!important
+  }
+  .color-dark-1 {
+    color: var(--color-dark-1)!important
+  }
+
+  @media(min-width:767px) {
+    .bg-md-light-1 {
+      background-color: var(--color-light-1)
+    }
+  }
+

@@ -1,0 +1,119 @@
+{% include "partials/header.njk" %}
+
+<section class="pt-large pt-md-xlarge pb-xxsmall pb-md-small" data-scroll-section>
+  <div class="container">
+
+    <div class="row">
+      <div class="offset-md-2 offset-xl-3 col-md-8 col-xl-6">
+        <div class="pb-xsmall pb-md-small">
+                    <div class="breadcrumbs mt-4 small fade-in">
+                        <a href="/" title="Strona główna">
+                            Główna
+                        </a>
+                        <span>
+                            |
+                        </span>
+                        <a href="/realizacje/" title="Realizacje">
+                            Realizacje
+                        </a>
+                        <span>
+                            |
+                        </span>
+                        <span>
+                            {{ title }}
+                        </span>
+                    </div>
+                    <h1 class="xl split-lines single-post-title my-2">
+                      {{ client }}
+                    </h1>
+                    <div class="breadcrumbs small fade-in">
+                        <span>
+                            Kategoria:
+                        </span>
+                        <span>
+                             {{ category }}
+                        </span>
+                        <span>
+                              |
+                        </span>
+                        <span>
+                            Wykonano: 
+                        </span>
+                        <span>
+                             {{ date | dateDisplay }}
+                        </span>
+                    </div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="offset-md-1 col-md-10">
+        <div class="parallax-wrap aspect_16-13 fade-in mb-4 mb-lg-5">
+        <svg viewBox="0 0 197 27" xmlns="http://www.w3.org/2000/svg" fill="none" class="works-grid-svg"><path d="M0 0V25.9811C0 25.9811 1.7066 17.82 14.6419 17.82C27.5772 17.82 132.578 17.82 152.113 17.82C171.648 17.82 175.703 0 175.703 0H0Z" fill="var(--color-light-1)"></path><path d="M196.849 0C173.012 0 174.306 11.0537 162.386 14.8985C162.386 14.8985 155.39 0 166.791 0H196.849Z" fill="var(--color-light-1)"></path></svg>
+           {% workImage "src/" + imageMain, title, "single-post-image img-fluid" %}
+        </div>
+    </div>
+
+    <div class="row fade-in">
+      <div class="offset-md-2 offset-xl-3 col-md-8 col-xl-6">
+        {{ content | safe }}
+        <div>
+        <a href="{{ link }}" title="{{ title }}" class="button-anim magnetic fade-in"
+          data-strength="60"
+          target="_blank">
+        <div class="button-anim-text">
+          <span>Zobacz online</span>
+          <span>Zobacz online</span>
+        </div>
+
+        <div class="button-anim-icon">
+          <svg class="icon-link" width="18" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+            <g><path fill="#fff" d="M83.3,79.7c0,2-1.6,3.6-3.6,3.6H20.3c-2,0-3.6-1.6-3.6-3.6V20.3c0-2,1.6-3.6,3.6-3.6h23.4V9.5H20.3   c-6,0-10.8,4.8-10.8,10.8v59.4c0,6,4.8,10.8,10.8,10.8h59.4c6,0,10.8-4.8,10.8-10.8V56.3h-7.2V79.7z"/><polygon fill="#fff" points="56.3,9.5 56.3,16.7 78.2,16.7 49.9,45 55,50.1 83.3,21.8 83.3,43.7 90.5,43.7 90.5,9.5  "/></g>
+          </svg>
+        </div>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-small pt-md-medium fade-in">
+      <div class="line-x lx-op"></div>
+    </div>
+
+    <div class="post-navigation pt-xxsmall pt-md-xsmall">
+      {%- if collections.works %} {%- set nextPost = collections.works |
+      getNextCollectionItem(page) %} {%- set previousPost = collections.works |
+      getPreviousCollectionItem(page) %} {%- if nextPost or previousPost %}
+      <ul class="d-flex flex-wrap fade-in">
+        {%- if previousPost %}
+        <li class="hover-reveal-wrap col-md-6 prev d-none d-md-block">
+          <p class="mb-4 color-accent-1 bold">
+            Poprzedni: 
+          </p>
+          <a
+            href="{{ previousPost.url | url }}"
+            title="{{ previousPost.data.client }}"
+            class="h3 link-hover"
+            >{{ previousPost.data.title }}</a
+          >
+        </li>
+        {% endif %} {%- if nextPost %}
+        <li class="hover-reveal-wrap col-md-6 next">
+          <p class="mb-4 color-accent-1 bold">
+             Kolejny: 
+          </p>
+          <a
+            href="{{ nextPost.url | url }}"
+            title="{{ nextPost.data.client }}"
+            class="h3 link-hover"
+            >{{ nextPost.data.title }}</a
+          >
+        </li>
+        {% endif %}
+      </ul>
+      {%- endif %} {%- endif %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/footer.njk" %}

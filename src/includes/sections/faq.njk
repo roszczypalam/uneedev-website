@@ -1,0 +1,32 @@
+<section class="bg-dark-3" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="pt-small pt-md-medium pb-small pb-md-medium rounded-xl bg-squares">
+    <div class="container">
+        <div class="accordion-wrap w-lg-70 w-xl-60 mx-auto"> 
+            <div class="text-center">
+            <p class="handwrite-md my-0 fade-in">Najczęściej</p>
+            <h2 class="xl mt-0 mb-5 split-lines">
+                Najczęściej zadawane pytania
+            </h2>
+            </div>
+            {% for post in collections.faq %}
+            <div class="bg-light-1 rounded-md shadow-1 my-3 fade-in" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="accordion p-4 p-md-5">
+                <span class="h3 title my-0" itemprop="name">
+                  {{ post.data.title }}
+                </span>
+                <span class="icon"></span>
+              </button>
+              <div class="panel col-md-11" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div class="p-4 p-md-5 pt-0 pt-md-0">
+                <p itemprop="text">
+                  {{ post.data.answer }}
+                </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+    </div> 
+  </div>
+</section> 
+

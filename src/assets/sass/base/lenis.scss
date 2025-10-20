@@ -1,0 +1,55 @@
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@media(min-width:767px) {
+    .scrollprogress-wrap {
+      position: fixed;
+      top: -5px;
+      left: 0;
+      height: calc(100vh + 10px);
+      width: 4px;
+      z-index: 9999
+    }
+    
+    .scrollprogress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 4px;
+      height: 0;
+      border: none;
+      border-radius: 2px;
+      background: var(--color-light-1);
+      opacity: .9
+    }
+    .scrollprogress::-webkit-progress-bar {
+      background: transparent;
+    }
+    .scrollprogress::-webkit-progress-value {
+      background: #222;
+      background-attachment: fixed;
+    }
+    .scrollprogress::-moz-progress-bar {
+      background: #222;
+      background-attachment: fixed;
+    }
+  }

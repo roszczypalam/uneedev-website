@@ -1,0 +1,32 @@
+</div>
+</div>
+
+<script src="/assets/js/libs/split-text.js"></script>
+<script src="/assets/js/libs/swup.js"></script>
+<script src="/assets/js/libs/swup-progress.js"></script>
+<script src="/assets/js/libs/swup-body.js"></script>
+<script src="/assets/js/libs/gsap.js"></script>
+<script src="/assets/js/libs/scroll-trigger.js"></script>
+<script src="/assets/js/libs/lenis.js"></script> 
+<script src="/assets/js/animations.js"></script>
+<script src="/assets/js/script.js"></script>
+<script>
+  window.addEventListener('load', function() {
+  appMain(); animationMain()
+  });
+  const swup = new Swup({
+    animateHistoryBrowsing: true, 
+    plugins: [
+      new SwupProgressPlugin(),
+      new SwupBodyClassPlugin()
+    ]
+  });
+  swup.hooks.on('page:view', () => {
+       appMain(); animationMain()
+  }, { before: true });
+</script> 
+<script src="/assets/js/cookieconsent.js" defer></script>
+<script src="/assets/js/cookieconsent-init.js" defer></script>
+  
+</body>
+</html>

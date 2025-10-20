@@ -1,0 +1,18 @@
+.transition-fade {
+    opacity: 1;
+    transition: .2s ease-in-out
+  }
+    
+  html.is-animating .transition-fade {
+    opacity: 0
+  }
+  
+  html.is-rendering .transition-fade {
+    opacity: 0
+  }
+  
+  .swup-progress-bar {
+      height: 4px;
+      background-color: var(--color-light-1);
+      z-index: 999999
+    }

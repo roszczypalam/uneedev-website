@@ -1,0 +1,80 @@
+:root {
+  --easing-1: 0.5s cubic-bezier(0.79, 0, 0.07, 0.88);
+  --radius-1: 25px;
+  --radius-2: 15px;
+}
+
+html {
+    background: var(--color-dark-1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-rendering: optimizeLegibility;
+  font-family: var(--font-primary);
+  line-height: 1.4;
+  color: var(--color-text);
+  background: var(--color-dark-1);
+}
+
+.scrollContainer {
+  background-color: var(--color-dark-1);
+}
+
+main {
+  position: relative;
+  z-index: 9;
+}
+
+img,
+video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-position: center
+}
+
+
+.blur-load {
+  position: relative
+}
+
+.blur-load .placeholder {
+  height: inherit;
+  width: 100%;
+  filter: blur(8px);
+  transition: opacity .2s cubic-bezier(.79,0,.07,.88);
+  object-fit: cover;
+  object-position: center;
+  z-index: 1
+}
+
+.blur-load.loaded .placeholder {
+  opacity: 0
+}
+
+.blur-load picture img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: opacity .5s cubic-bezier(.79,0,.07,.88);
+  opacity: 0
+}
+
+.blur-load.loaded picture img {
+  opacity: 1
+} 
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+

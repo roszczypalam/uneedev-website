@@ -1,0 +1,101 @@
+{% include "partials/header.njk" %}
+
+<section class="pt-large pt-md-xlarge pb-xxsmall pb-md-small" data-scroll-section>
+    <div class="container">
+
+        <div class="row">
+            <div class="offset-md-2 offset-xl-3 col-md-8 col-xl-6">
+                <div class="single-post-title-wrap pb-xsmall pb-md-small">
+                    <div class="breadcrumbs small mt-4 fade-in">
+                        <a href="/" title="Strona główna">
+                            Główna
+                        </a>
+                        <span>|</span>
+                        <a href="/blog/" title="Blog">
+                            Blog
+                        </a>
+                        <span>|</span>
+                        <span>
+                            {{ title }}
+                        </span>
+                    </div>
+                    <h1 class="single-post-title split-lines my-3">
+                        {{ title }}
+                    </h1>
+                    <div class="breadcrumbs small fade-in">
+                        <span>
+                            Kategoria:
+                        </span>
+                        <span>
+                             {{ tags }}
+                        </span>
+                        <span>
+                              |
+                        </span>
+                        <span> 
+                            Opublikowano: 
+                        </span>
+                        <span>
+                             {{ date | dateDisplay }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9 mx-auto">
+                <div class="parallax-wrap aspect_16-9 fade-in mb-4 mb-lg-5">
+                    <svg viewBox="0 0 197 27" xmlns="http://www.w3.org/2000/svg" fill="none" class="works-grid-svg"><path d="M0 0V25.9811C0 25.9811 1.7066 17.82 14.6419 17.82C27.5772 17.82 132.578 17.82 152.113 17.82C171.648 17.82 175.703 0 175.703 0H0Z" fill="var(--color-light-1)"></path><path d="M196.849 0C173.012 0 174.306 11.0537 162.386 14.8985C162.386 14.8985 155.39 0 166.791 0H196.849Z" fill="var(--color-light-1)"></path></svg>
+                    {% blogImage "src/" + thumbnail, title, "single-post-image img-fluid" %}
+                </div>
+            </div>
+        </div>
+
+        <div class="content row fade-in" id="pinShare">
+            <div class="offset-md-2 offset-xl-3 col-md-8 col-xl-6">
+                {{ content | safe}}
+            </div>
+        </div>
+
+        <div class="pt-xsmall pt-md-medium fade-in">
+            <div class="line-x lx-op"></div>
+        </div>
+
+        <div class="row g-0">
+            <div class="col-md-12">
+                <div class="post-navigation pt-xxsmall pt-md-xsmall">
+                    {%- if collections.posts %}
+                    {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
+                    {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+                    {%- if nextPost or previousPost %}
+                    <ul class="d-flex flex-wrap fade-in">
+                        {%- if previousPost %}
+                        <li class="col-md-6 prev d-none d-md-block">
+                            <p class="mb-4 color-accent-1 bold">                         
+                                Poprzedni:
+                            </p>
+                            <a href="{{ previousPost.url | url }}" title="{{ previousPost.data.client }}"
+                                class="h3 link-hover">{{ previousPost.data.title }}
+                            </a>
+                        </li>
+                        {% endif %}
+                        {%- if nextPost %}
+                        <li class="col-md-6 next">
+                            <p class="mb-4 color-accent-1 bold">
+                                    Kolejny:
+                            </p>
+                            <a href="{{ nextPost.url | url }}" title="{{ nextPost.data.client }}"
+                                class="h3 link-hover">{{ nextPost.data.title }}
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {%- endif %}
+                    {%- endif %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% include "partials/footer.njk" %}

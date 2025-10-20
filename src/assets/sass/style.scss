@@ -1,0 +1,19 @@
+
+@use 'base/grid.scss';
+@use 'base/colors.scss';
+@use 'base/global.scss';
+@use 'base/transition.scss';
+@use 'base/spacings.scss';
+@use 'base/typography.scss';
+@use 'base/lenis.scss';
+
+
+@use 'components/header.scss';
+@use 'components/button.scss';
+@use 'components/hero.scss';
+@use 'components/accordion.scss';
+@use 'components/loop-text.scss';
+@use 'components/helpers.scss';
+@use 'components/footer.scss';
+
+@use 'syntax/prism-coldark-dark.scss'; 

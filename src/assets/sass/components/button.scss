@@ -1,18 +1,20 @@
 
 .button-anim {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.8em 0.55em 0.6em 3em;
-    border-radius: 12px;
-    border: none;
-    font-size: .8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: #050b17;
-    border: 1px solid #ffffff29;
-    color: #fff;
-    cursor: pointer; 
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7em 0.55em 0.7em 3em;
+  border-radius: 45px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #050b17;
+  border: 2px solid rgba(255, 255, 255, 0.1607843137);
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
   }
   
   .button-anim-text {
@@ -125,6 +127,23 @@
   }
 
 @media(min-width:767px) {
+.button-anim::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  border-radius: 45px;
+  background: var(--color-accent-2);
+  transition: .5s cubic-bezier(.79,0,.07,.88)
+  }
+
+  .button-anim:hover::before {
+  transform: translateY(0%);
+  }
+
     .button-anim:hover .button-anim-icon::before {
         transform: scale(1)
       }

@@ -2,22 +2,22 @@
 .button-anim {
     display: inline-flex;
     align-items: center;
-    padding: 0.8em 0.35em 0.6em 2em;
+    padding: 0.8em 0.55em 0.6em 3em;
     border-radius: 12px;
     border: none;
     font-size: .8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: var(--color-accent-1);
-    color: #222;
+    background: #050b17;
+    border: 1px solid #ffffff29;
+    color: #fff;
     cursor: pointer; 
   }
   
   .button-anim-text {
     position: relative;
     margin-right: 1.3em;
-    color: #140e48;
     overflow: hidden;
   }
   
@@ -141,7 +141,7 @@
       .button-anim:hover .button-anim-icon .icon-link path,
       .button-anim:hover .button-anim-icon .icon-link polygon,
       .button-anim:hover .button-anim-icon .icon-dollar path {
-        fill: var(--color-accent-2)
+        fill: var(--color-accent-1)
       }
       .button-anim:hover .button-anim-icon .icon-arrow {
         stroke: var(--color-accent-1)

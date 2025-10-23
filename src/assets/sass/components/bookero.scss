@@ -65,27 +65,30 @@
   position: fixed !important;
   inset: 0;
   background: rgba(17,24,39,.65);
-  display: none;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   z-index: 999999; /* wyżej niż efekty i sticky */
   backdrop-filter: blur(3px);
   pointer-events: none; /* włączamy przy .active */
+  overflow: auto;
+  opacity: 0;
+    transition: .1s ease-in-out;
 }
-#bookero-overlay.active { display: flex; pointer-events: auto; }
+#bookero-overlay.active { opacity: 1; pointer-events: auto; }
 
 /* okno popupu */
 #bookero-overlay .bookero-popup {
   position: relative;
+  height: auto;
   width: 90%;
   max-width: 900px;
-  max-height: 90vh;
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 10px 40px rgba(0,0,0,.3);
-  transform: scale(.95);
+  transform: scale(.9);
   opacity: 0;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: .35s ease-in-out .2s;
 }
 #bookero-overlay.active .bookero-popup { opacity: 1; transform: scale(1); }
 

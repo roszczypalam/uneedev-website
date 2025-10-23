@@ -29,7 +29,7 @@
 <script src="/assets/js/cookieconsent-init.js" defer></script>
 
 <script>
-  // Konfiguracja Bookero
+  // Bookero
   var bookero_config = {
     id: '9UmCxEbmleIB',
     container: 'bookero',
@@ -38,8 +38,6 @@
     plugin_css: true,
     lang: 'pl'
   };
-
-  // Załaduj widget
   (function() {
     var d = document, s = d.createElement('script');
     s.src = 'https://cdn.bookero.pl/plugin/v2/js/bookero-compiled.js';
@@ -48,39 +46,25 @@
 
   document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.getElementById('bookero-overlay');
-    const openBtn = document.getElementById('open-bookero');
+    const openButtons = document.querySelectorAll('.open-bookero'); // <== wszystkie przyciski
     const closeBtn = document.querySelector('.bookero-close');
 
-    // helper: blokada scrolla bez skoku
     let scrollY = 0;
     function lockScroll() {
-      // bieżąca pozycja (Lenis ma własny stan, ale window.scrollY też działa po stop())
       scrollY = window.scrollY || 0;
       document.documentElement.classList.add('popup-open');
-      // ustawiamy ujemny top, żeby „zamrozić” widok
       document.body.style.setProperty('--scroll-lock-top', `-${scrollY}px`);
       document.body.classList.add('scroll-lock');
-
-      // wyłącz Lenisa, jeśli jest
-      if (window.lenis && typeof window.lenis.stop === 'function') {
-        window.lenis.stop();
-      }
+      if (window.lenis && typeof window.lenis.stop === 'function') window.lenis.stop();
     }
     function unlockScroll() {
       document.body.classList.remove('scroll-lock');
       document.body.style.removeProperty('--scroll-lock-top');
       document.documentElement.classList.remove('popup-open');
-
-      // przywróć Lenisa i pozycję
       if (window.lenis && typeof window.lenis.start === 'function') {
         window.lenis.start();
-        // bez animacji, od razu do miejsca
-        if (typeof window.lenis.scrollTo === 'function') {
-          window.lenis.scrollTo(scrollY, { immediate: true });
-        }
-      } else {
-        window.scrollTo(0, scrollY);
-      }
+        if (typeof window.lenis.scrollTo === 'function') window.lenis.scrollTo(scrollY, { immediate: true });
+      } else window.scrollTo(0, scrollY);
     }
 
     function openPopup() {
@@ -92,19 +76,12 @@
       unlockScroll();
     }
 
-    openBtn.addEventListener('click', openPopup);
+    // Wszystkie przyciski Bookero
+    openButtons.forEach(btn => btn.addEventListener('click', openPopup));
     closeBtn.addEventListener('click', closePopup);
-
-    // klik w tło
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closePopup();
-    });
-
-    // klawisz Esc
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
-        closePopup();
-      }
+    overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
     });
   });
 </script>

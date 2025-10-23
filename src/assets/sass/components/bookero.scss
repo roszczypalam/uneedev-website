@@ -10,39 +10,47 @@
     backdrop-filter: blur(3px);
   }
 
-  .bookero-popup {
-    position: relative;
-    width: 90%;
-    max-width: 900px;
-    max-height: 90vh;
-    background: #fff;
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    transform: scale(0.95);
-    opacity: 0;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-  }
+/* Popup */
+.bookero-popup {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 90vh; /* zamiast max-height */
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden; /* schowa pasek przycisku zamykania */
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+  transform: scale(.95);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  transition: opacity .25s ease, transform .25s ease;
+}
 
-  .bookero-overlay.active { display: flex; }
-  .bookero-overlay.active .bookero-popup {
-    opacity: 1;
-    transform: scale(1);
-  }
+/* Wnętrze Bookero – przewijalne */
+#bookero {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
 
-  .bookero-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    border: none;
-    background: transparent;
-    font-size: 2rem;
-    color: #6b7280;
-    cursor: pointer;
-    z-index: 10;
-    transition: color .2s ease;
-  }
-  .bookero-close:hover { color: #111; }
+/* Przycisk zamykania zostaje na górze */
+.bookero-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  color: #6b7280;
+  cursor: pointer;
+  z-index: 10;
+  transition: color .2s ease;
+}
+.bookero-close:hover { color: #111; }
+
 
   /* Dla środka Bookero */
   #bookero {
@@ -52,3 +60,44 @@
     padding: 20px;
   }
 
+/* overlay nad wszystkim, nie dziedziczy żadnych transformów */
+#bookero-overlay {
+  position: fixed !important;
+  inset: 0;
+  background: rgba(17,24,39,.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999; /* wyżej niż efekty i sticky */
+  backdrop-filter: blur(3px);
+  pointer-events: none; /* włączamy przy .active */
+}
+#bookero-overlay.active { display: flex; pointer-events: auto; }
+
+/* okno popupu */
+#bookero-overlay .bookero-popup {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+  transform: scale(.95);
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
+}
+#bookero-overlay.active .bookero-popup { opacity: 1; transform: scale(1); }
+
+/* twarda blokada transformów na body, kiedy popup otwarty */
+html.popup-open body { 
+  transform: none !important;
+}
+
+/* klasyczna blokada scrolla bez skakania layoutu */
+html.popup-open body.scroll-lock {
+  position: fixed;
+  top: var(--scroll-lock-top, 0);
+  left: 0; right: 0;
+  width: 100%;
+}

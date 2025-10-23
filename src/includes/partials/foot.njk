@@ -29,23 +29,49 @@
 <script src="/assets/js/cookieconsent-init.js" defer></script>
 
 
-<script type="text/javascript">
+<!-- SKRYPT -->
+<script>
+  // Konfiguracja Bookero
   var bookero_config = {
     id: '9UmCxEbmleIB',
     container: 'bookero',
     type: 'calendar',
     position: '',
-    plugin_css: true, // zostaje false, bo stosujemy własne style
+    plugin_css: true,
     lang: 'pl'
   };
 
+  // Załaduj widget
   (function() {
     var d = document, s = d.createElement('script');
     s.src = 'https://cdn.bookero.pl/plugin/v2/js/bookero-compiled.js';
     d.body.appendChild(s);
   })();
-</script>
 
+  // Logika popupa
+  document.addEventListener('DOMContentLoaded', function() {
+    const overlay = document.getElementById('bookero-overlay');
+    const openBtn = document.getElementById('open-bookero');
+    const closeBtn = document.querySelector('.bookero-close');
+
+    openBtn.addEventListener('click', () => {
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>
 
   
 </body>

@@ -131,16 +131,6 @@ body .bookero-plugin-header,
     border-color: var(--color-accent-2)!important
   }
 
-  body .bookero-plugin-form {
-    margin: 0!important;
-    max-width: 620px!important
-  }
-
-  body .bookero-plugin-hideable-part {
-    height: fit-content!important;
-    min-height: auto!important
-  }
-
   .inquiry-actions-details::after {
     border-top: 2px solid var(--color-accent-1)!important;
     border-right: 2px solid var(--color-accent-1)!important
@@ -152,10 +142,6 @@ body .bookero-plugin-header,
 
   .contact-icon {
     width: 60px;
-  }
-
-  .surname {
-    display: none!important
   }
 
   .checkbox-text {

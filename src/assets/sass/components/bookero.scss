@@ -104,3 +104,73 @@ html.popup-open body.scroll-lock {
   left: 0; right: 0;
   width: 100%;
 }
+
+
+body .bookero-plugin-header,
+  .add-button,
+  .submit-button,
+  .bookero-plugin-form .field .multiselect__option--highlight,
+  #bookero-plugin[data-mode="sticky"] .bookero-sticky-plugin-toggle,
+  .result-popup-icon,
+  .inquiries-list-add-icon::after,
+  .inquiries-list-add-icon::before {
+    background: var(--color-accent-1)!important
+  }
+
+  .calendar-days-list-cell.is-valid,
+  .hours-list-item,
+  .inquiries-list-add {
+    background: var(--color-light-2)!important;
+    color: var(--color-accent-1)!important
+  }
+
+  .hours-list-item.is-selected,
+  .calendar-days-list-cell.is-selected,
+  .bookero-plugin-form .field input:active,
+  .bookero-plugin-form .field input:focus {
+    border-color: var(--color-accent-2)!important
+  }
+
+  body .bookero-plugin-form {
+    margin: 0!important;
+    max-width: 620px!important
+  }
+
+  body .bookero-plugin-hideable-part {
+    height: fit-content!important;
+    min-height: auto!important
+  }
+
+  .inquiry-actions-details::after {
+    border-top: 2px solid var(--color-accent-1)!important;
+    border-right: 2px solid var(--color-accent-1)!important
+  }
+
+  .bookero-plugin-form-wrapper a {
+    color: var(--color-accent-1)!important
+  }
+
+  .contact-icon {
+    width: 60px;
+  }
+
+  .surname {
+    display: none!important
+  }
+
+  .checkbox-text {
+    font-size: 12px;
+    opacity: .7
+  }
+
+  .s-icon {
+    display: block;
+    width: 100%;
+    stroke: var(--color-accent-1);
+    fill: transparent;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    width: 98px;
+  }

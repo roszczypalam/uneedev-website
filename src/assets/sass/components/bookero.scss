@@ -12,19 +12,19 @@
 
 /* Popup */
 .bookero-popup {
-  position: relative;
+  position: absolute;
+  top: 2em;
+  left: 0;
+  right: 0;
   width: 90%;
   max-width: 900px;
   height: 90vh; /* zamiast max-height */
   background: #fff;
   border-radius: 14px;
   overflow: hidden; /* schowa pasek przycisku zamykania */
-  box-shadow: 0 10px 40px rgba(0,0,0,.3);
-  transform: scale(.95);
   opacity: 0;
-  display: flex;
-  flex-direction: column;
-  transition: opacity .25s ease, transform .25s ease;
+  visibility: hidden;
+  transition: opacity .35s ease-in-out;
 }
 
 /* Wnętrze Bookero – przewijalne */
@@ -90,7 +90,7 @@
   opacity: 0;
   transition: .35s ease-in-out .2s;
 }
-#bookero-overlay.active .bookero-popup { opacity: 1; transform: scale(1); }
+#bookero-overlay.active .bookero-popup { opacity: 1; visibility: visible; transform: scale(1); }
 
 /* twarda blokada transformów na body, kiedy popup otwarty */
 html.popup-open body { 

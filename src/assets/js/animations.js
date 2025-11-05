@@ -43,11 +43,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Zapobiegaj przewijaniu przy ładowaniu strony
 window.addEventListener("load", () => {
-  window.scrollTo(0, 0); // Ustaw przewijanie na samą górę
-  lenis.scrollTo(0, { immediate: true }); // Ustaw natychmiast Lenis na górę
+  lenis.scrollTo(0, { immediate: true });
 });
+
 
 // Synchronizacja Lenis i ScrollTrigger
 lenis.on('scroll', ScrollTrigger.update);
